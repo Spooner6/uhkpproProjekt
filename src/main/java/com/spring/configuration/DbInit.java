@@ -13,6 +13,8 @@ public class DbInit {
         String title2 = "MANAGER";
         String title3 = "EMPLOYEE";
         // Create the EntityManagerFactory & EntityManager
+
+        // test
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-cviceni");
         EntityManager em = emf.createEntityManager();
 
