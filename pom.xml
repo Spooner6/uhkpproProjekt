@@ -11,7 +11,8 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <springframework.version>4.0.6.RELEASE</springframework.version>
+        <springframework.version>5.0.2.RELEASE</springframework.version>
+        <springsecurity.version>5.0.0.RELEASE</springsecurity.version>
     </properties>
 
     <dependencies>
@@ -19,6 +20,25 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${springframework.version}</version>
+        </dependency>
+        <!-- Spring Security-->
+        <!-- Spring Security Web and Config-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.0.0.RELEASE</version>
+        </dependency>
+
+        <!-- Spring security taglib support -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>5.0.0.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -31,6 +51,7 @@
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>2.3.1</version>
         </dependency>
+        <!-- jsp and jstl-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -52,6 +73,14 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.11</version>
         </dependency>
+        <!-- C3PO ... jeste nevim, zda ho budu potrebovat, ale v tutorialech ho pouzivaj-->
+        <!--
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+        -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -62,8 +91,12 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
         </dependency>
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
     </dependencies>
-
     <build>
         <pluginManagement>
             <plugins>

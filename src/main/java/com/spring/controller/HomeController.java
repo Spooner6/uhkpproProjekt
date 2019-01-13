@@ -1,25 +1,33 @@
 package com.spring.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class HomeController {
 
-        @RequestMapping(method = RequestMethod.GET)
+    @GetMapping("/")
+    public String showHome(){
+        return "home";
+    }
+
+    @GetMapping("/leaders")
+    public String showLeaders(){
+        return "leaders";
+    }
+    /*@RequestMapping(method = RequestMethod.GET)
         public String sayHello(ModelMap model) {
             model.addAttribute("greeting", "Hello World from Spring 4 MVC");
             return "home";
         }
+        */
 
-        @RequestMapping(value = "/helloagain", method = RequestMethod.GET)
+      /*  @RequestMapping(value = "/helloagain", method = RequestMethod.GET)
         public String sayHelloAgain(ModelMap model) {
             model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
             return "home";
         }
-
+        */
     }
 
