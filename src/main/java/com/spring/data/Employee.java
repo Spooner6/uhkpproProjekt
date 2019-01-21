@@ -14,10 +14,7 @@ public class Employee {
     private String email;
     private int telNumber;
     private String password;
-
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    private Roles roles;
+    private String role;
 
 
     public Employee(){
@@ -72,13 +69,6 @@ public class Employee {
         this.telNumber = telNumber;
     }
 
-    public Roles getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Roles roles) {
-        this.roles = roles;
-    }
 
     public String getPassword() {
         return password;
@@ -88,13 +78,14 @@ public class Employee {
         this.password = password;
     }
 
-    public Employee(String firstName, String lastName, String userName, String email, int telNumber, String password) {
+    public Employee(String firstName, String lastName, String userName, String email, int telNumber, String password, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.telNumber = telNumber;
         this.password = password;
+        this.role = role;
     }
 
     @Override
@@ -107,7 +98,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", telNumber=" + telNumber +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

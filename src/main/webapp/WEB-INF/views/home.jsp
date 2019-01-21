@@ -31,6 +31,9 @@
 <form:form action="${pageContext.request.contextPath}/logout"
            method="POST">
 
+    <a href="${pageContext.request.contextPath}/list">Go to my Employee list</a>
+    <br>
+    <br>
     <input type="submit" value="Logout" />
 
 </form:form>

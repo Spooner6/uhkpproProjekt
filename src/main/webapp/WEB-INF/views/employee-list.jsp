@@ -1,0 +1,46 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 42060
+  Date: 20.01.2019
+  Time: 19:13
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+<head>
+    <title>List of employees</title>
+</head>
+<body>
+<h1>our Employee list</h1>
+
+<div id="wrapper">
+        <div id="header">
+            <h2>Customer relationship Manager</h2>
+        </div>
+
+    <div id="container">
+        <div id="content">
+
+                        <table>
+                            <tr>
+                                <th>FirstName</th>
+                                <th>lastName</th>
+                                <th>Email</th>
+                            </tr>
+
+                <c:forEach var="tempEmployee" items="${employees}">
+                    <tr>
+                      <td>${tempEmployee.firstName}</td>
+                  </tr>
+
+              </c:forEach>
+          </table>
+
+      </div>
+
+  </div>
+</div>
+
+</body>
+</html>
