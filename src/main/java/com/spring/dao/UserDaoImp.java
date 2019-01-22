@@ -1,6 +1,6 @@
 package com.spring.dao;
 
-import com.spring.data.Employee;
+import com.spring.data.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -11,22 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public class EmployeeDaoImp implements EmployeeDao {
+public class UserDaoImp implements UserDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     //@Override
     @Transactional
-    public List<Employee> getEmployees() {
+    public List<User> getUser() {
         Session curreSession = sessionFactory.getCurrentSession();
 
         //vyladit ten dotaz/
-        Query<Employee> theQuery = curreSession.createQuery("select c from Employee AS c",Employee.class);
+        Query<User> theQuery = curreSession.createQuery("select c from User AS c", User.class);
 
-        List<Employee> employees = theQuery.getResultList();
+        List<User> users = theQuery.getResultList();
 
-        return employees;
+        return users;
         //return null;
     }
 }

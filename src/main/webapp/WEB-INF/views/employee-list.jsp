@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>List of employees</title>
+    <title>List of users</title>
 </head>
 <body>
 <h1>our Employee list</h1>
@@ -29,9 +29,9 @@
                                 <th>Email</th>
                             </tr>
 
-                <c:forEach var="tempEmployee" items="${employees}">
+                <c:forEach var="tempUser" items="${users}">
                     <tr>
-                      <td>${tempEmployee.firstName}</td>
+                      <td>${tempUser.firstName}</td>
                   </tr>
 
               </c:forEach>

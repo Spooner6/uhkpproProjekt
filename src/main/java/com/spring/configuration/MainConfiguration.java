@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -35,7 +36,6 @@ public class MainConfiguration implements WebMvcConfigurer {
     private Logger logger = Logger.getLogger(getClass().getName());
 
 
-
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -48,11 +48,9 @@ public class MainConfiguration implements WebMvcConfigurer {
     @Bean
     public DataSource securityDataSource() {
 
-        // create connection pool
         ComboPooledDataSource securityDataSource
                 = new ComboPooledDataSource();
 
-        // set the jdbc driver class
 
         try {
             securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
@@ -60,21 +58,10 @@ public class MainConfiguration implements WebMvcConfigurer {
             throw new RuntimeException(exc);
         }
 
-        // log the connection props
-        // for sanity's sake, log this info
-        // just to make sure we are REALLY reading data from properties file
-
-        //logger.info(">>> jdbc.url=" + env.getProperty("jdbc.url"));
-       // logger.info(">>> jdbc.user=" + env.getProperty("jdbc.user"));
-
-
-        // set database connection props
-
         securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
         securityDataSource.setUser(env.getProperty("jdbc.user"));
         securityDataSource.setPassword(env.getProperty("jdbc.password"));
 
-        // set connection pool props
 
         securityDataSource.setInitialPoolSize(
                 getIntProperty("connection.pool.initialPoolSize"));

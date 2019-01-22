@@ -10,17 +10,34 @@ import javax.servlet.ServletRegistration;
 
 public class AppInitializer implements WebApplicationInitializer {
 
-    public void onStartup(ServletContext container) throws ServletException {
+public void onStartup(ServletContext container) throws ServletException {
 
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(MainConfiguration.class, WebJars.class);
+        ctx.register(MainConfiguration.class);
         ctx.setServletContext(container);
 
         ServletRegistration.Dynamic servlet = container.addServlet(
-                "dispatcher", new DispatcherServlet(ctx));
+        "dispatcher", new DispatcherServlet(ctx));
 
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
-    }
+        }
 
-}
+        }
+        /*extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+@Override
+protected Class<?>[] getRootConfigClasses() {
+        return null;
+        }
+
+@Override
+protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{MainConfiguration.class, WebJars.class};
+        }
+
+@Override
+protected String[] getServletMappings() {
+        return new String[]{"/"};
+        }
+*/

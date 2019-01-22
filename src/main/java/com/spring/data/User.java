@@ -3,7 +3,7 @@ package com.spring.data;
 import javax.persistence.*;
 
 @Entity
-public class Employee {
+public class User {
 
     @Id
     @GeneratedValue
@@ -17,7 +17,7 @@ public class Employee {
     private String role;
 
 
-    public Employee(){
+    public User(){
 
     }
 
@@ -78,7 +78,7 @@ public class Employee {
         this.password = password;
     }
 
-    public Employee(String firstName, String lastName, String userName, String email, int telNumber, String password, String role) {
+    public User(String firstName, String lastName, String userName, String email, int telNumber, String password, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -90,7 +90,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
