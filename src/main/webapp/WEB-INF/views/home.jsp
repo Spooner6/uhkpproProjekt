@@ -23,8 +23,8 @@
             <p class="navbar-text navbar-right">Přihlášen jako <security:authentication
                     property="principal.username"/> <a href="#" class="navbar-link">Role: <security:authentication property="principal.authorities"/></a></p>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/novinky">Novinky<span class="sr-only">(current)</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/users">Zaměstnanci</a></li>
             </ul>
                 </li>
             </ul>
@@ -42,9 +42,6 @@
 <form:form action="${pageContext.request.contextPath}/logout"
            method="POST">
 
-    <a href="${pageContext.request.contextPath}/list">Go to my Employee list</a>
-    <br>
-    <br>
     <input type="submit" value="Logout" />
 
 </form:form>

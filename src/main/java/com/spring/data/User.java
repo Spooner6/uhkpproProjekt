@@ -1,25 +1,41 @@
 package com.spring.data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "users")
 public class User {
 
+    //@Id
+    //@GeneratedValue
+  //  private int id;
+   // @NotNull
+   // private String firstName;
+   // @NotNull
+   // private String lastName;
+    @NotNull
     @Id
-    @GeneratedValue
-    private int id;
-    private String firstName;
-    private String lastName;
+    @Column(name = "username")
     private String userName;
-    private String email;
-    private int telNumber;
+    //@NotNull
+    //private String email;
+    //@NotNull
+    //private int telNumber;
+    @NotNull
+    @Column(name = "password")
     private String password;
-    private String role;
+    @NotNull
+    @Column(name = "enabled")
+    private String enabled;
+    //@NotNull
+    //private String role;
 
 
     public User(){
 
     }
+/*
 
     public int getId() {
         return id;
@@ -44,6 +60,7 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+*/
 
     public String getUserName() {
         return userName;
@@ -53,7 +70,7 @@ public class User {
         this.userName = userName;
     }
 
-    public String getEmail() {
+    /*public String getEmail() {
         return email;
     }
 
@@ -69,7 +86,7 @@ public class User {
         this.telNumber = telNumber;
     }
 
-
+*/
     public String getPassword() {
         return password;
     }
@@ -78,7 +95,7 @@ public class User {
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String userName, String email, int telNumber, String password, String role) {
+   /* public User(String firstName, String lastName, String userName, String email, int telNumber, String password, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -86,9 +103,22 @@ public class User {
         this.telNumber = telNumber;
         this.password = password;
         this.role = role;
+    }*/
+
+    public User(String userName, String password, String enabled) {
+        this.userName = userName;
+        this.password = password;
+        this.enabled = enabled;
     }
 
-    @Override
+    public String getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
+    /*   @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
@@ -100,5 +130,5 @@ public class User {
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 '}';
-    }
+    }*/
 }

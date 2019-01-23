@@ -24,17 +24,17 @@
 
                         <table>
                             <tr>
-                                <th>FirstName</th>
-                                <th>lastName</th>
-                                <th>Email</th>
+                                <th>Uživatelské jméno</th>
+                                <th>Heslo</th>
                             </tr>
 
-                <c:forEach var="tempUser" items="${users}">
-                    <tr>
-                      <td>${tempUser.firstName}</td>
-                  </tr>
+                            <c:forEach var="tempUser" items="${users}">
+                                <tr>
+                                    <td>${tempUser.username}</td>
+                                    <td>${tempUser.password}</td>
+                                </tr>
 
-              </c:forEach>
+                            </c:forEach>
           </table>
 
       </div>
