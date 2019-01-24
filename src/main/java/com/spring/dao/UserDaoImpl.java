@@ -16,9 +16,6 @@ public class UserDaoImpl implements UserDao{
     @Autowired
     private SessionFactory sessionFactory;
 
-
-    //@Override
-    @Transactional
     public List<User> getUsers(){
         Session currentSession = sessionFactory.getCurrentSession();
 

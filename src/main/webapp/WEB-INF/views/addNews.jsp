@@ -1,12 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: 42060
-  Date: 23.01.2019
-  Time: 21:42
+  Date: 24.01.2019
+  Time: 16:16
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fom" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +44,6 @@
                 <li><a href="${pageContext.request.contextPath}/users">Zaměstnanci</a></li>
             </ul>
             </li>
-            </ul>
         </div>
     </div>
 </nav>
@@ -50,28 +51,30 @@
 
 <main role="main" class="flex-shrink-0">
     <div class="container">
-        <h1 class="mt-5">Přehled aktualit</h1>
+        <h1 class="mt-5">Přidání novinky</h1>
+            <form:form action="saveNews" modelAttribute="news" method="post">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><label>Předmět: </label></td>
+                        <td><fom:input path="description"/></td>
+                    </tr>
 
-        <input type="button" value="Přidat novinku" onclick="window.location.href='showFormForAdd'; return false;"/>
+                    <tr>
+                        <td><label>Text: </label></td>
+                        <td><fom:input path="text"/></td>
+                    </tr>
+                    <tr>
+                        <td><label></label></td>
+                        <td><input type="submit" value="Save"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form:form>
 
-
-        <table>
-            <tr>
-                <th>Popis</th>
-                <th>Text</th>
-            </tr>
-
-            <!-- loop over and print our customers -->
-            <c:forEach var="tempNews" items="${news}">
-
-                <tr>
-                    <td> ${tempNews.description} </td>
-                    <td> ${tempNews.text} </td>
-                </tr>
-
-            </c:forEach>
-
-        </table>
+        <p>
+            <a href="${pageContext.request.contextPath}/novinky">Zpět na přehled novinek</a>
+        </p>
         <hr>
     </div>
 </main>

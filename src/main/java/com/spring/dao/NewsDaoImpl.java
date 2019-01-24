@@ -14,10 +14,7 @@ import java.util.List;
 public class NewsDaoImpl implements NewsDao {
     @Autowired
     private SessionFactory sessionFactory;
-
-
-    //@Override
-    @Transactional
+    
     public List<News> getNews() {
         Session currentSession = sessionFactory.getCurrentSession();
 
