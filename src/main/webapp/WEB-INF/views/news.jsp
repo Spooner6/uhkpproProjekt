@@ -68,9 +68,12 @@
             </c:forEach>
 
         </table>
+        <hr>
     </div>
 </main>
-
+<footer class="container">
+    <p>&copy; We are fucking awesome 2019</p>
+</footer>
 
 </body>
 
