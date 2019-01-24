@@ -23,7 +23,8 @@
             <p class="navbar-text navbar-right">Přihlášen jako <security:authentication
                     property="principal.username"/> <a href="#" class="navbar-link">Role: <security:authentication property="principal.authorities"/></a></p>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/novinky">Novinky<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/">Domovská stránka<span class="sr-only">(current)</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/novinky">Novinky</a></li>
                 <li><a href="${pageContext.request.contextPath}/users">Zaměstnanci</a></li>
             </ul>
                 </li>
@@ -32,19 +33,28 @@
     </div>
 </nav>
 
-</p>
-<security:authorize access="hasRole('MANAGER')">
-<p>
-<a href="${pageContext.request.contextPath}/leaders">Leadership meeting</a>
-</p>
-</security:authorize>
-<!-- Add a logout button -->
-<form:form action="${pageContext.request.contextPath}/logout"
-           method="POST">
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Název firmy?</h1>
+        <p>Tady by to chtelo asi hromadu kecu o firme?</p>
 
-    <input type="submit" value="Logout" />
+        </p>
+        <security:authorize access="hasRole('MANAGER')">
+            <p>
+                <a href="${pageContext.request.contextPath}/leaders">Leadership meeting</a>
+            </p>
+        </security:authorize>
+        <!-- Add a logout button -->
+        <form:form action="${pageContext.request.contextPath}/logout"
+                   method="POST">
 
-</form:form>
+            <input type="submit" value="Logout" />
+
+        </form:form>
+
+
+    </div>
+</main>
 </body>
 
 </html>

@@ -16,26 +16,41 @@
     <title>List Customers</title>
 
     <!-- reference our style sheet -->
+    <style>
+        body { padding-top: 70px; }
+    </style>
 
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/style.css" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
-<div id="wrapper">
-    <div id="header">
-        <h2>CRM - Customer Relationship Manager</h2>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <p class="navbar-text navbar-right"><a href="#" class="navbar-link"></a></p>
+            <ul class="nav navbar-nav">
+                <li><a href="${pageContext.request.contextPath}/">Domovská stránka</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/novinky">Novinky<span class="sr-only">(current)</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/users">Zaměstnanci</a></li>
+            </ul>
+            </li>
+            </ul>
+        </div>
     </div>
-</div>
-<div id="container">
+</nav>
 
-    <div id="content">
 
-        <!--  add our html table here -->
-
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Přehled aktualit</h1>
         <table>
             <tr>
                 <th>Popis</th>
@@ -53,10 +68,8 @@
             </c:forEach>
 
         </table>
-
     </div>
-
-</div>
+</main>
 
 
 </body>
