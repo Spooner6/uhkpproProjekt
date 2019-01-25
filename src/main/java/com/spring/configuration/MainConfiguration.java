@@ -45,6 +45,13 @@ public class MainConfiguration implements WebMvcConfigurer {
 
         return viewResolver;
     }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //registry.addResourceHandler("/src/main/res/css/**").addResourceLocations("/src/main/webapp/WEB-INF/css");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
     @Bean
     public DataSource securityDataSource() {
 

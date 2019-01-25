@@ -9,6 +9,17 @@
 <html>
 <head>
     <title>Leaeders Home page</title>
+
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css" />
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+
+    <script	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
