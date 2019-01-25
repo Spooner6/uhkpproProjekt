@@ -58,11 +58,16 @@
             <!-- loop over and print our customers -->
             <c:forEach var="tempNews" items="${news}">
 
+                <c:url var="updateLink" value="/updateNews">
+                    <c:param name="newsId" value="${tempNews.id}"></c:param>
+                </c:url>
                 <tr>
                     <td> ${tempNews.description} </td>
                     <td> ${tempNews.text} </td>
+                    <td>
+                        <a href="${updateLink}">Upravit</a>
+                    </td>
                 </tr>
-
             </c:forEach>
 
         </table>

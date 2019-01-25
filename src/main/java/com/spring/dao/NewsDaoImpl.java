@@ -23,4 +23,20 @@ public class NewsDaoImpl implements NewsDao {
         List<News> news = theQuery.getResultList();
         return news;
     }
+
+    @Override
+    public void saveNews(News news) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(news);
+    }
+
+    @Override
+    public News getNews(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        News news = currentSession.get(News.class, id);
+        return news;
+    }
+
+
 }

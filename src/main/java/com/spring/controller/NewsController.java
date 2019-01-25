@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.List;
@@ -33,12 +34,24 @@ public class NewsController {
 
         News news = new News();
         model.addAttribute("news", news);
-            return "addNews";
+            return "customizeNews";
     }
 
     @PostMapping("/saveNews")
     public String saveNews(@ModelAttribute("news") News news){
+
+        newsService.saveNews(news);
+        //redirect: zpet na list novinek?
         return "redirect:/novinky";
+    }
+
+    @GetMapping("/updateNews")
+    public String updateNews(@RequestParam("newsId") int id, Model model){
+        News news = newsService.getNews(id);
+
+        model.addAttribute("news", news);
+
+        return "customizeNews";
     }
 
 }

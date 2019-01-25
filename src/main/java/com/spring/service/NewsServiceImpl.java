@@ -18,4 +18,20 @@ public class NewsServiceImpl implements NewsService {
     public List<News> getNews() {
         return newsDao.getNews();
     }
+
+    @Override
+    @Transactional
+    public void saveNews(News news) {
+        newsDao.saveNews(news);
+    }
+
+    @Override
+    @Transactional
+    public News getNews(int id) {
+
+
+        return newsDao.getNews(id);
+    }
+
+
 }
