@@ -26,7 +26,7 @@ public class NewsController {
         List<News> theNews = newsService.getNews();
 
         theModel.addAttribute("news",theNews);
-        return "news";
+        return "news/news";
     }
     //pridani novinky
     @GetMapping("/showFormForAdd")
@@ -34,7 +34,7 @@ public class NewsController {
 
         News news = new News();
         model.addAttribute("news", news);
-            return "customizeNews";
+            return "news/updateNews";
     }
 
     @PostMapping("/saveNews")
@@ -51,7 +51,7 @@ public class NewsController {
 
         model.addAttribute("news", news);
 
-        return "customizeNews";
+        return "news/updateNews";
     }
 
 }
