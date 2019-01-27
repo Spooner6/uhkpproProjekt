@@ -83,7 +83,8 @@
 <div class="container">
     <h1 class="mt-5">Přidání novinky</h1>
     <form:form action="saveNews" modelAttribute="news" method="post" class="form-group">
-
+        <%--Drží si id --%>
+        <form:hidden path="id"/>
         <label for="examplePredmet">Předmět:</label>
         <fom:input path="description" class="form-control" placeholder="Vyplňte předmět" id="examplePredmet"/>
         <small id="emailHelp" class="form-text text-muted">Popište stručne novinku</small>

@@ -33,5 +33,11 @@ public class NewsServiceImpl implements NewsService {
         return newsDao.getNews(id);
     }
 
+    @Override
+    @Transactional
+    public void deleteNews(int id) {
+        newsDao.deleteNews(id);
+    }
+
 
 }

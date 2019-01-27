@@ -96,11 +96,19 @@
                 <c:url var="updateLink" value="/updateNews">
                     <c:param name="newsId" value="${tempNews.id}"></c:param>
                 </c:url>
+
+                <c:url var="deleteLink" value="/deleteNews">
+                    <c:param name="newsId" value="${tempNews.id}"></c:param>
+                </c:url>
                 <tr>
                     <td> ${tempNews.description} </td>
                     <td> ${tempNews.text} </td>
                     <td>
-                         <button type="button" class="btn btn-light"><a href="${updateLink}">Upravit</a></button>
+                         <button type="button" class="btn btn-light"><a href="${updateLink}">Upravit  </a></button>
+                        <%--onclick .. kousek JavaScript. Opravdu chcete smazat novinku?--%>
+                        <button type="button" class="btn btn-light"><a href="${deleteLink}"
+                        onclick="if (!(confirm('Opravdu chcete smazat danou novinku?'))) return false"
+                        >Smazat</a></button>
                     </td>
                 </tr>
             </c:forEach>

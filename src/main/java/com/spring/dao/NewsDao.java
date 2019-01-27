@@ -10,4 +10,6 @@ public interface NewsDao {
     public void saveNews(News news);
 
     public News getNews(int id);
+
+    public void deleteNews(int id);
 }

@@ -53,5 +53,10 @@ public class NewsController {
 
         return "news/updateNews";
     }
+    @GetMapping("/deleteNews")
+    public String deleteNews(@RequestParam("newsId")int id){
+        newsService.deleteNews(id);
+        return "redirect:/novinky";
+    }
 
 }

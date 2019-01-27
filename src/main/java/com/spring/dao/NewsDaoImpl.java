@@ -23,11 +23,11 @@ public class NewsDaoImpl implements NewsDao {
         List<News> news = theQuery.getResultList();
         return news;
     }
-
+    //ulozeni i update!!!
     @Override
     public void saveNews(News news) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.save(news);
+        currentSession.saveOrUpdate(news);
     }
 
     @Override
@@ -36,6 +36,14 @@ public class NewsDaoImpl implements NewsDao {
 
         News news = currentSession.get(News.class, id);
         return news;
+    }
+
+    @Override
+    public void deleteNews(int id) {
+        Session currSession = sessionFactory.getCurrentSession();
+        Query theQuery = currSession.createQuery("delete from News where id=:newsId");
+        theQuery.setParameter("newsId", id);
+        theQuery.executeUpdate();
     }
 
 

@@ -9,4 +9,5 @@ public interface NewsService {
     public void saveNews(News news);
 
     public  News getNews(int id);
+    public void deleteNews(int id);
 }
