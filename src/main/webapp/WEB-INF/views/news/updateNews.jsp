@@ -59,6 +59,9 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
+                </li>
             </ul>
         </div>
     </div>

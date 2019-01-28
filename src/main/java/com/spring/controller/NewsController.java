@@ -28,6 +28,7 @@ public class NewsController {
         theModel.addAttribute("news",theNews);
         return "news/news";
     }
+
     //pridani novinky
     @GetMapping("/showFormForAdd")
     public  String addNews(Model model){
