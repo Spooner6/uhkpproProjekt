@@ -2,6 +2,7 @@ package com.spring.data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,10 +29,18 @@ public class User {
     @NotNull
     @Column(name = "enabled")
     private String enabled;
-    //@NotNull
-    //private String role;
 
 
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
+                                            ,CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Requests> requestsList;
+
+  /*  @ManyToMany(fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "")
+    private List<Authorities> authorities;
+    */
     public User(){
 
     }
