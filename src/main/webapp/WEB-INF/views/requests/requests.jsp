@@ -59,7 +59,10 @@
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci<span class="sr-only">(current)</span></a>
+                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Dotazy<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/addRequests">Přidat dotazy</a>
                 </li>
             </ul>
         </div>
@@ -83,9 +86,6 @@
 </header>
 
 <div class="container">
-
-    <input type="button" class="btn btn-dark" value="Přidat novinku" onclick="window.location.href='addRequests'; return false;"/>
-
 
     <table class="table table-dark">
         <tr>
