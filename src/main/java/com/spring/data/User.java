@@ -31,9 +31,9 @@ public class User {
     private String enabled;
 
 
-    @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
+   /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
                                             ,CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Requests> requestsList;
+    private List<Requests> requestsList;*/
 
   /*  @ManyToMany(fetch = FetchType.LAZY, cascade = {
             CascadeType.PERSIST, CascadeType.MERGE,

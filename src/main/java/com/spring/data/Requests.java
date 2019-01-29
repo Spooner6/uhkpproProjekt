@@ -14,11 +14,14 @@ public class Requests {
     private String text;
     @Column(name = "description")
     private String desctiption;
-
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE
+    @Column(name = "owner")
+    private String owner;
+    @Column(name = "state")
+    private String state;
+/*    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE
                             ,CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "owner")
-    private User user;
+    private User user;*/
 
 
     public int getId() {
@@ -33,8 +36,16 @@ public class Requests {
         return desctiption;
     }
 
-    public User getUser() {
+   /* public User getUser() {
         return user;
+    }*/
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public void setId(int id) {
@@ -49,8 +60,16 @@ public class Requests {
         this.desctiption = desctiption;
     }
 
-    public void setUser(User user) {
+  /*  public void setUser(User user) {
         this.user = user;
+    }*/
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     @Override
@@ -59,15 +78,16 @@ public class Requests {
                 "id=" + id +
                 ", text='" + text + '\'' +
                 ", desctiption='" + desctiption + '\'' +
-                ", user=" + user +
                 '}';
     }
 
-    public Requests(String text, String desctiption, User user) {
+    public Requests(String text, String desctiption, String owner, String state) {
         this.text = text;
         this.desctiption = desctiption;
-        this.user = user;
+        this.owner = owner;
+        this.state = state;
     }
+
     public Requests(){
 
     }

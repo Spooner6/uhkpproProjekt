@@ -50,13 +50,16 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/">Domovská stránka<span class="sr-only">(current)</span></a>
+                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/">Domovská stránka</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/novinky">Novinky</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
@@ -89,7 +92,7 @@
             <th scope="col">Popis</th>
             <th scope="col">Text</th>
             <th scope="col">Odesilatel</th>
-            <th scope="col">Stav</th>
+            <th scope="col">Vyřízeno</th>
         </tr>
 
         <!-- loop over and print our customers -->
@@ -105,7 +108,8 @@
             <tr>
                 <td> ${tempRequests.text} </td>
                 <td> ${tempRequests.desctiption} </td>
-              <%--  <td> ${tempRequests.owner}</td> --%>
+                <td> ${tempRequests.owner}</td>
+                <td> ${tempRequests.state}</td>
                 <td>
                     <button type="button" class="btn btn-light"><a href="${updateLink}">Upravit  </a></button>
                         <%--onclick .. kousek JavaScript. Opravdu chcete smazat novinku?--%>
