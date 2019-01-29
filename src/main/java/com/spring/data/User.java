@@ -29,6 +29,9 @@ public class User {
     @NotNull
     @Column(name = "enabled")
     private String enabled;
+    @NotNull
+    @Column(name = "role")
+    private String role;
 
 
    /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE

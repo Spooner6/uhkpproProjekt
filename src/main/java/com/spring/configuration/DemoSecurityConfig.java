@@ -21,14 +21,19 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // jdbc authentikace
 
-        auth.jdbcAuthentication().dataSource(securityDataSource);
+      //  auth.jdbcAuthentication().dataSource(securityDataSource);
+        auth.jdbcAuthentication().dataSource(securityDataSource).usersByUsernameQuery("select username, password, enabled"
+                + " from users where username=?")
+                .authoritiesByUsernameQuery("select username, role "
+                        + "from users where username=?");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").hasRole("EMPLOYEE")
-                .antMatchers("/leaders/**").hasRole("MANAGER")
+                //.antMatchers("/leaders/**").hasRole("MANAGER")
+                .antMatchers("/").hasRole("MANAGER")
                 .antMatchers("/systems/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
