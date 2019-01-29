@@ -8,21 +8,14 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
-    //@Id
-    //@GeneratedValue
-  //  private int id;
-   // @NotNull
-   // private String firstName;
-   // @NotNull
-   // private String lastName;
+
     @NotNull
     @Id
+    @Column(name = "id")
+    private int id;
+    @NotNull
     @Column(name = "username")
     private String userName;
-    //@NotNull
-    //private String email;
-    //@NotNull
-    //private int telNumber;
     @NotNull
     @Column(name = "password")
     private String password;
@@ -32,6 +25,15 @@ public class User {
     @NotNull
     @Column(name = "role")
     private String role;
+    @NotNull
+    @Column(name = "firstname")
+    private String firstName;
+    @NotNull
+    //@Column(name = "")
+    private String lastName;
+    private String adress;
+    private String cardNumber;
+   // private date
 
 
    /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
