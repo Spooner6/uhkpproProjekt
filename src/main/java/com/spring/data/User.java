@@ -2,6 +2,7 @@ package com.spring.data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Entity
@@ -29,11 +30,18 @@ public class User {
     @Column(name = "firstname")
     private String firstName;
     @NotNull
-    //@Column(name = "")
+    @Column(name = "lastname")
     private String lastName;
+    @NotNull
+    @Column(name = "adress")
     private String adress;
+    @NotNull
+    @Column(name = "cardnumber")
     private String cardNumber;
-   // private date
+    @NotNull
+    @Column(name = "birthdate")
+    private String birthDate;
+
 
 
    /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
@@ -49,7 +57,31 @@ public class User {
     public User(){
 
     }
-/*
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
 
     public int getId() {
         return id;
@@ -57,6 +89,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getFirstName() {
@@ -74,75 +114,57 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-*/
 
-    public String getUserName() {
-        return userName;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setUserName(String userName) {
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+  /*  public SimpleDateFormat getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(SimpleDateFormat birthDate) {
+        this.birthDate = birthDate;
+    }
+*/
+    public User(String userName, String password, String enabled, String role, String firstName, String lastName,
+                String adress, String cardNumber, SimpleDateFormat birthDate) {
         this.userName = userName;
-    }
-
-    /*public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getTelNumber() {
-        return telNumber;
-    }
-
-    public void setTelNumber(int telNumber) {
-        this.telNumber = telNumber;
-    }
-
-*/
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-   /* public User(String firstName, String lastName, String userName, String email, int telNumber, String password, String role) {
+        this.enabled = enabled;
+        this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
-        this.email = email;
-        this.telNumber = telNumber;
-        this.password = password;
-        this.role = role;
-    }*/
-
-    public User(String userName, String password, String enabled) {
-        this.userName = userName;
-        this.password = password;
-        this.enabled = enabled;
+        this.adress = adress;
+        this.cardNumber = cardNumber;
+     /*   this.birthDate = birthDate;*/
     }
 
-    public String getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(String enabled) {
-        this.enabled = enabled;
-    }
-    /*   @Override
+    @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled='" + enabled + '\'' +
+                ", role='" + role + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
-                ", telNumber=" + telNumber +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
+                ", adress='" + adress + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+        /*        ", birthDate=" + birthDate +*/
                 '}';
-    }*/
+    }
 }

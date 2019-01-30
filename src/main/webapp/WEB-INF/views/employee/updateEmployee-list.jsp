@@ -1,17 +1,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fom" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Ondra
-  Date: 25.1.2019
-  Time: 22:36
+  User: radek
+  Date: 30.01.2019
+  Time: 9:13
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -74,46 +73,38 @@
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <h1 class="text-uppercase">
-                    <strong>Zaměstnanci</strong>
+                    <strong>Úprava uživatele</strong>
                 </h1>
                 <hr>
             </div>
             <div class="col-lg-8 mx-auto">
-                <p>Přehled</p>
+                <p>Přidání</p>
             </div>
         </div>
     </div>
 </header>
 
 <div class="container">
+    <h1 class="mt-5">Přidání Uživatele</h1>
+    <form:form action="saveUser" modelAttribute="users" method="post" class="form-group">
+        <%--Drží si id --%>
+        <form:hidden path="id"/>
 
-    <input type="button" class="btn btn-dark" value="Přidat uživatele" onclick="window.location.href='addUser'; return false;"/>
+        <label for="examplePredmet">Přihlašovací jméno</label>
+        <fom:input path="userName" class="form-control" placeholder="Vyplňte předmět" id="examplePredmet"/>
+
+        <small id="emailHelp" class="form-text text-muted">Popište stručne novinku</small>
+        <label for="exampleObsah">Heslo:</label>
+        <fom:input path="password" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
 
 
-    <table class="table table-dark">
-        <tr>
-            <th scope="col">Uživatelské jméno</th>
-            <th scope="col">Heslo</th>
-            <th scope="col">Jméno</th>
-            <th scope="col">Příjmení</th>
-            <th scope="col">Adresa</th>
-            <th scope="col">Číslo kreditní karty</th>
-            <th scope="col">role</th>
-        </tr>
 
-        <c:forEach var="tempUser" items="${users}">
-            <tr>
-                <td>${tempUser.userName}</td>
-                <td>${tempUser.password}</td>
-                <td>${tempUser.firstName}</td>
-                <td>${tempUser.lastName}</td>
-                <td>${tempUser.adress}</td>
-                <td>${tempUser.cardNumber}</td>
-                <td>${tempUser.role}</td>
-            </tr>
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    </form:form>
 
-        </c:forEach>
-    </table>
+    <p>
+        <a href="${pageContext.request.contextPath}/users">Zpět na přehled novinek</a>
+    </p>
     <hr>
 </div>
 
@@ -131,6 +122,4 @@
 <script src="${pageContext.request.contextPath}/resources/js/creative.min.js"></script>
 
 </body>
-
 </html>
-
