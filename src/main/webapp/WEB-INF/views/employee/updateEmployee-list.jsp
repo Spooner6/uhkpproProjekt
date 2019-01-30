@@ -54,12 +54,14 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/novinky">Novinky</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
-                </li>
+                <security:authorize access="hasRole('MANAGER')">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
+                    </li>
+                </security:authorize>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/addRequests">Přidat dotazy</a>
                 </li>
@@ -88,22 +90,39 @@
     <h1 class="mt-5">Přidání Uživatele</h1>
     <form:form action="saveUser" modelAttribute="users" method="post" class="form-group">
         <%--Drží si id --%>
-        <form:hidden path="id"/>
+       <%-- <form:hidden path="id"/> --%>
 
         <label for="examplePredmet">Přihlašovací jméno</label>
-        <fom:input path="userName" class="form-control" placeholder="Vyplňte předmět" id="examplePredmet"/>
+        <fom:input path="userName" class="form-control" placeholder="Vyplňte obsah" id="examplePredmet"/>
 
-        <small id="emailHelp" class="form-text text-muted">Popište stručne novinku</small>
+       <%-- <small id="emailHelp" class="form-text text-muted">Popište stručne novinku</small> --%>
         <label for="exampleObsah">Heslo:</label>
         <fom:input path="password" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
 
+        <label for="exampleObsah">Jméno:</label>
+        <fom:input path="firstName" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
 
+        <label for="exampleObsah">Příjmení:</label>
+        <fom:input path="lastName" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
+
+        <label for="exampleObsah">Adresa trvalého bydliště:</label>
+        <fom:input path="adress" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
+
+        <label for="exampleObsah">Číslo kreditní karty:</label>
+        <fom:input path="cardNumber" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
+
+        <small id="emailHelp" class="form-text text-muted">Vyplňte prosím ve tvaru: ROLE_MANAGER nebo ROLE_EMPLOYEE</small>
+        <label for="exampleObsah">Role:</label>
+        <fom:input path="authority" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
+
+        <label for="exampleObsah">enabled</label>
+        <fom:input path="enabled" class="form-control" placeholder="1" id="exampleObsah"/>
 
         <input type="submit" value="Save" class="btn btn-primary"/>
     </form:form>
 
     <p>
-        <a href="${pageContext.request.contextPath}/users">Zpět na přehled novinek</a>
+        <a href="${pageContext.request.contextPath}/users">Zpět na seznam zaměstnanců</a>
     </p>
     <hr>
 </div>

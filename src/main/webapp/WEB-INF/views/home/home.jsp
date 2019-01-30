@@ -54,10 +54,14 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/novinky">Novinky</a>
                 </li>
+                <security:authorize access="hasRole('MANAGER')">
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
+                </li>
+                    </security:authorize>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/addRequests">Přidat dotazy</a>
                 </li>
@@ -80,7 +84,7 @@
             <div class="col-lg-8 mx-auto">
                 <security:authorize access="hasRole('MANAGER')">
                     <p>
-                    Přihlášen jako <security:authentication
+                    Přihlášen jako: <security:authentication
                             property="principal.username"/> <a href="#" class="navbar-link">Role: <security:authentication property="principal.authorities"/></a>
                     </p>
                 </security:authorize>

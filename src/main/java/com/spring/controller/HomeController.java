@@ -11,14 +11,5 @@ public class HomeController {
     public String showHome() {
         return "home/home";
     }
-
-    @GetMapping("/leaders")
-    public String showLeaders() {
-        return "leaders";
-    }
-
-
-
-
 }
 

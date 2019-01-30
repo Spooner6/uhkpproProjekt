@@ -54,13 +54,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/novinky">Novinky</a>
-                </li>
+                    <security:authorize access="hasRole('MANAGER')">
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
                 </li>
+                </security:authorize>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/addRequests">Přidat dotazy</a>
                 </li>
@@ -86,9 +87,9 @@
 </header>
 
     <div class="container">
-
+        <security:authorize access="hasRole('MANAGER')">
         <input type="button" class="btn btn-dark" value="Přidat novinku" onclick="window.location.href='showFormForAdd'; return false;"/>
-
+        </security:authorize>
 
         <table class="table table-dark">
             <tr>
@@ -99,6 +100,7 @@
             <!-- loop over and print our customers -->
             <c:forEach var="tempNews" items="${news}">
 
+                <security:authorize access="hasRole('MANAGER')">
                 <c:url var="updateLink" value="/updateNews">
                     <c:param name="newsId" value="${tempNews.id}"></c:param>
                 </c:url>
@@ -106,6 +108,7 @@
                 <c:url var="deleteLink" value="/deleteNews">
                     <c:param name="newsId" value="${tempNews.id}"></c:param>
                 </c:url>
+                </security:authorize>
                 <tr>
                     <td> ${tempNews.description} </td>
                     <td> ${tempNews.text} </td>

@@ -21,7 +21,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="94a8d337-059c-495a-8861-170f843b8ebc" />
-          <unit-entry name="sessionFactoryBean" value="6ded1281-351e-4125-a6f6-acb029148457" />
+          <unit-entry name="sessionFactoryBean" value="5c13bbcd-5f0c-448c-8246-8a16f0daadb4" />
         </datasource-map>
         <naming-strategy-map />
       </configuration>
