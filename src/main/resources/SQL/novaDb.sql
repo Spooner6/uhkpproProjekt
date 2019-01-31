@@ -27,6 +27,8 @@ INSERT INTO `news` VALUES
 	(2,'Dobrý den, vyskytl se zde takový nešvar. Lidé si nosí jídlo domů!','Probléms  jídlem v jídelně');
 
 
+
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -76,5 +78,24 @@ CREATE TABLE `requests` (
 
 -- Dump completed on 2016-09-24 21:50:59
 
+
+	DROP TABLE IF EXISTS `attendance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prichod` DATETIME(6),
+  `stav` int(2),
+  `id_user` int(11),
+  PRIMARY KEY (`id`),
+  foreign key (`id_user`) references users (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `attendance` VALUES(1,STR_TO_DATE('12-01-2014 00:00:00','%m-%d-%Y %H:%i:%s'), 1, 1);
 
 
