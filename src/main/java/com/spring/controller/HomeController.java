@@ -1,15 +1,18 @@
 package com.spring.controller;
 
+import com.spring.service.AttendanceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 
 @Controller
 
 public class HomeController {
+
+    @Autowired
+    private AttendanceService attendanceService;
 
     @GetMapping("/")
     public String showHome() {
@@ -24,6 +27,8 @@ public class HomeController {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         System.out.println( sdf.format(cal.getTime()) );*/
+
+       attendanceService.recordArrive();
 
         return "home/home";
     }
