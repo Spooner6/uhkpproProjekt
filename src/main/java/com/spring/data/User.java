@@ -7,13 +7,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@SecondaryTable(name = "authorities", pkJoinColumns = @PrimaryKeyJoinColumn(name = "username"))
 public class User {
 
-
-    @NotNull
+/*    @NotNull
     @Id
-    @Column(name = "id")
-    private int id;
+    @Column(name = "id")*/
+   // private int id;
+    @Id
     @NotNull
     @Column(name = "username")
     private String userName;
@@ -23,9 +24,9 @@ public class User {
     @NotNull
     @Column(name = "enabled")
     private String enabled;
-    @NotNull
+/*    @NotNull
     @Column(name = "role")
-    private String role;
+    private String role;*/
     @NotNull
     @Column(name = "firstname")
     private String firstName;
@@ -38,10 +39,13 @@ public class User {
     @NotNull
     @Column(name = "cardnumber")
     private String cardNumber;
+ /*   @NotNull
+    @Column(table = "authorities", name = "username")
+    private String username;
+    */
     @NotNull
-    @Column(name = "birthdate")
-    private String birthDate;
-
+    @Column(table = "authorities", name = "authority")
+    private String authority;
 
 
    /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
@@ -83,21 +87,28 @@ public class User {
         this.enabled = enabled;
     }
 
-    public int getId() {
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
+    /*   public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
+    }*/
+/*
     public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }
+    }*/
 
     public String getFirstName() {
         return firstName;
@@ -131,40 +142,30 @@ public class User {
         this.cardNumber = cardNumber;
     }
 
-  /*  public SimpleDateFormat getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(SimpleDateFormat birthDate) {
-        this.birthDate = birthDate;
-    }
-*/
     public User(String userName, String password, String enabled, String role, String firstName, String lastName,
-                String adress, String cardNumber, SimpleDateFormat birthDate) {
+                String adress, String cardNumber) {
         this.userName = userName;
         this.password = password;
         this.enabled = enabled;
-        this.role = role;
+ /*       this.role = role;*/
         this.firstName = firstName;
         this.lastName = lastName;
         this.adress = adress;
         this.cardNumber = cardNumber;
-     /*   this.birthDate = birthDate;*/
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+    /*            "id=" + id +*/
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled='" + enabled + '\'' +
-                ", role='" + role + '\'' +
+         /*       ", role='" + role + '\'' +*/
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", adress='" + adress + '\'' +
                 ", cardNumber='" + cardNumber + '\'' +
-        /*        ", birthDate=" + birthDate +*/
                 '}';
     }
 }

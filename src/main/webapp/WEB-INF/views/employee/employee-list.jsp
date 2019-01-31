@@ -55,12 +55,14 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/novinky">Novinky</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
-                </li>
+                <security:authorize access="hasRole('MANAGER')">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/users">Zaměstnanci</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/requests">Dotazy</a>
+                    </li>
+                </security:authorize>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/addRequests">Přidat dotazy</a>
                 </li>
@@ -86,14 +88,13 @@
 </header>
 
 <div class="container">
-
+<security:authorize access="hasRole('MANAGER')">
     <input type="button" class="btn btn-dark" value="Přidat uživatele" onclick="window.location.href='addUser'; return false;"/>
-
+</security:authorize>
 
     <table class="table table-dark">
         <tr>
             <th scope="col">Uživatelské jméno</th>
-            <th scope="col">Heslo</th>
             <th scope="col">Jméno</th>
             <th scope="col">Příjmení</th>
             <th scope="col">Adresa</th>
@@ -104,12 +105,11 @@
         <c:forEach var="tempUser" items="${users}">
             <tr>
                 <td>${tempUser.userName}</td>
-                <td>${tempUser.password}</td>
                 <td>${tempUser.firstName}</td>
                 <td>${tempUser.lastName}</td>
                 <td>${tempUser.adress}</td>
                 <td>${tempUser.cardNumber}</td>
-                <td>${tempUser.role}</td>
+                <td>${tempUser.authority}</td>
             </tr>
 
         </c:forEach>
