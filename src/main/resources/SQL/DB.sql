@@ -57,7 +57,7 @@ CREATE TABLE `attendance` (
 -- Dumping data for table `attendance`
 --
 
-INSERT INTO `attendance` VALUES (1,'2019-02-01 11:01:51','Příchod','ondra1'),(2,'2019-02-01 14:18:45','Příchod','ondra1'),(3,'2019-02-01 14:18:48','Odchod','pepa'),(4,'2019-02-01 14:19:25','Odchod','pepa');
+INSERT INTO `attendance` VALUES (1,'01.02.2015 18:30:25','Příchod','zamestnanec'),(2,'01.02.2015 23:30:26','Příchod','zamestnanec'),(3,'02.02.2015 10:30:25','Odchod','zamestnanec'),(4,'02.02.2015 19:35:25','Odchod','zamestnanec');
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -89,3 +89,6 @@ CREATE TABLE `requests` (
   `description` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+insert into `requests` values
+(1,'Dobry den, nebylo by pro firmu lepsi, kdyby casem presla misto servroveho uloziste na klaudove? dekuji, s pozdravem zamestnanec','Server vs Cloud')
