@@ -34,7 +34,7 @@ public class AttendanceDaoImpl implements AttendanceDao {
     @Override
     public void recordArrive(String username) {
         Session currentSession = sessionFactory.getCurrentSession();
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
 
         System.out.println(timeStamp);
 
@@ -52,7 +52,7 @@ public class AttendanceDaoImpl implements AttendanceDao {
     public void recordLeave(String username) {
 
         Session currentSession = sessionFactory.getCurrentSession();
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
         Attendance attendance= new Attendance();
         attendance.setPrichod(timeStamp);
         attendance.setUsername(username);
