@@ -7,13 +7,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@SecondaryTable(name = "authorities", pkJoinColumns = @PrimaryKeyJoinColumn(name = "username"))
 public class User {
 
-/*    @NotNull
-    @Id
-    @Column(name = "id")*/
-   // private int id;
     @Id
     @NotNull
     @Column(name = "username")
@@ -24,9 +19,6 @@ public class User {
     @NotNull
     @Column(name = "enabled")
     private String enabled;
-/*    @NotNull
-    @Column(name = "role")
-    private String role;*/
     @NotNull
     @Column(name = "firstname")
     private String firstName;
@@ -39,25 +31,7 @@ public class User {
     @NotNull
     @Column(name = "cardnumber")
     private String cardNumber;
- /*   @NotNull
-    @Column(table = "authorities", name = "username")
-    private String username;
-    */
-    @NotNull
-    @Column(table = "authorities", name = "authority")
-    private String authority;
 
-
-   /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
-                                            ,CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Requests> requestsList;*/
-
-  /*  @ManyToMany(fetch = FetchType.LAZY, cascade = {
-            CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "")
-    private List<Authorities> authorities;
-    */
     public User(){
 
     }
@@ -86,29 +60,6 @@ public class User {
     public void setEnabled(String enabled) {
         this.enabled = enabled;
     }
-
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-    /*   public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }*/
-/*
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }*/
 
     public String getFirstName() {
         return firstName;
@@ -147,7 +98,6 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.enabled = enabled;
- /*       this.role = role;*/
         this.firstName = firstName;
         this.lastName = lastName;
         this.adress = adress;
@@ -157,11 +107,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-    /*            "id=" + id +*/
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled='" + enabled + '\'' +
-         /*       ", role='" + role + '\'' +*/
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", adress='" + adress + '\'' +

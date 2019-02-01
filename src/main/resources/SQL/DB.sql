@@ -87,9 +87,5 @@ CREATE TABLE `requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` varchar(10000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `description` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `owner` varchar(20) DEFAULT NULL,
-  `state` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `owner` (`owner`),
-  CONSTRAINT `requests_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`username`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;

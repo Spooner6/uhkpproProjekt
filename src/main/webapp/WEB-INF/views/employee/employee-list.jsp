@@ -102,25 +102,12 @@
         </tr>
 
         <c:forEach var="tempUser" items="${users}">
-            <c:url var="updateLink" value="/updateUser">
-                <c:param name="userId" value="${tempUser.userName}"></c:param>
-            </c:url>
-            <c:url var="deleteLink" value="/deleteUser">
-                <c:param name="userId" value="${tempUser.userName}"></c:param>
-            </c:url>
             <tr>
                 <td>${tempUser.userName}</td>
                 <td>${tempUser.firstName}</td>
                 <td>${tempUser.lastName}</td>
                 <td>${tempUser.adress}</td>
                 <td>${tempUser.cardNumber}</td>
-                <td>
-                    <button type="button" class="btn btn-light"><a href="${updateLink}">Upravit  </a></button>
-                        <%--onclick .. kousek JavaScript. Opravdu chcete smazat novinku?--%>
-                    <button type="button" class="btn btn-light"><a href="${deleteLink}"
-                                                                   onclick="if (!(confirm('Opravdu chcete uživatele smazat?'))) return false"
-                    >Smazat</a></button>
-                </td>
             </tr>
         </c:forEach>
     </table>
