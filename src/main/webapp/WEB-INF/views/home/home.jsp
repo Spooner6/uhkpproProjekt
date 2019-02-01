@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ondra
@@ -116,9 +117,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="section-heading">Let's Get In Touch!</h2>
-                <hr class="my-4">
-                <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                <table class="table table-dark">
+                    <tr>
+                        <th scope="col">Příchod</th>
+                        <th scope="col">Stav</th>
+                        <th scope="col">Username</th>
+                    </tr>
+
+                    <c:forEach var="tempAttendance" items="${attendance}">
+                        <tr>
+                            <td>${tempAttendance.prichod}</td>
+                            <td>${tempAttendance.stav}</td>
+                            <td>${tempAttendance.username}</td>
+
+                        </tr>
+                    </c:forEach>
+                </table>
             </div>
         </div>
         <div class="row">
