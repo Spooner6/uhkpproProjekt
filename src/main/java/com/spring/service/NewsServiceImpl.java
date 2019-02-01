@@ -1,6 +1,6 @@
 package com.spring.service;
 
-import com.spring.dao.NewsDao;
+import com.spring.repository.NewsDao;
 import com.spring.data.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,13 @@ public class NewsServiceImpl implements NewsService {
 
     @Transactional
     public List<News> getNews() {
-        return newsDao.getNews();
+        return (List<News>) newsDao.findAll();
     }
 
     @Override
     @Transactional
     public void saveNews(News news) {
-        newsDao.saveNews(news);
+        newsDao.save(news);
     }
 
     @Override
@@ -30,14 +30,12 @@ public class NewsServiceImpl implements NewsService {
     public News getNews(int id) {
 
 
-        return newsDao.getNews(id);
+        return newsDao.findOne(id);
     }
-
     @Override
     @Transactional
     public void deleteNews(int id) {
-        newsDao.deleteNews(id);
+        newsDao.delete(id);
     }
-
 
 }

@@ -82,12 +82,10 @@
                 <hr>
             </div>
             <div class="col-lg-8 mx-auto">
-                <security:authorize access="hasRole('MANAGER')">
                     <p>
                     Přihlášen jako: <security:authentication
                             property="principal.username"/> <a href="#" class="navbar-link">Role: <security:authentication property="principal.authorities"/></a>
                     </p>
-                </security:authorize>
                 <!-- Add a logout button -->
                 <form:form action="${pageContext.request.contextPath}/logout"
                            method="POST">

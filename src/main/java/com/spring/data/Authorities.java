@@ -1,46 +1,40 @@
 package com.spring.data;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "authorities")
 public class Authorities {
 
-
+    private String username;
+    private EnumAuthorities authority;
 
     @Id
     @Column(name = "username")
-    private String username;
-
-    @Column(name = "authority")
-    private String authority;
-
-    public Authorities(String username, String authority) {
-        this.username = username;
-        this.authority = authority;
-    }
-
-    public Authorities() {
-    }
-
-    public String getAuthority() {
-        return authority;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setAuthority(String authority) {
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "authority")
+    public EnumAuthorities getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(EnumAuthorities authority) {
         this.authority = authority;
     }
 
-    public void setUsername(String username) {
+    public Authorities(String username, EnumAuthorities authority) {
         this.username = username;
+        this.authority = authority;
+    }
+    public Authorities(){
+
     }
 }
 

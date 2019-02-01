@@ -92,8 +92,6 @@
         <tr>
             <th scope="col">Popis</th>
             <th scope="col">Text</th>
-            <th scope="col">Odesilatel</th>
-            <th scope="col">Vyřízeno</th>
         </tr>
 
         <!-- loop over and print our customers -->
@@ -107,10 +105,8 @@
                 <c:param name="requestsId" value="${tempRequests.id}"></c:param>
             </c:url>
             <tr>
-                <td> ${tempRequests.text} </td>
                 <td> ${tempRequests.desctiption} </td>
-                <td> ${tempRequests.owner}</td>
-                <td> ${tempRequests.state}</td>
+                <td> ${tempRequests.text} </td>
                 <td>
                     <button type="button" class="btn btn-light"><a href="${updateLink}">Upravit  </a></button>
                         <%--onclick .. kousek JavaScript. Opravdu chcete smazat novinku?--%>

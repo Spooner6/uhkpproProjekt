@@ -13,7 +13,7 @@ public class AppInitializer implements WebApplicationInitializer {
 public void onStartup(ServletContext container) throws ServletException {
 
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(MainConfiguration.class);
+        ctx.register(MainConfiguration.class, DemoSecurityConfig.class);
         ctx.setServletContext(container);
 
         ServletRegistration.Dynamic servlet = container.addServlet(
@@ -24,20 +24,3 @@ public void onStartup(ServletContext container) throws ServletException {
         }
 
         }
-        /*extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-@Override
-protected Class<?>[] getRootConfigClasses() {
-        return null;
-        }
-
-@Override
-protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{MainConfiguration.class, WebJars.class};
-        }
-
-@Override
-protected String[] getServletMappings() {
-        return new String[]{"/"};
-        }
-*/

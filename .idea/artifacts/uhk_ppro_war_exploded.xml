@@ -59,6 +59,8 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.12.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.19" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:1.10.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.9" />
         </element>
       </element>
       <element id="directory" name="META-INF">

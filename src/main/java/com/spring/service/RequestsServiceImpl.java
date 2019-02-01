@@ -1,6 +1,6 @@
 package com.spring.service;
 
-import com.spring.dao.RequestsDao;
+import com.spring.repository.RequestsDao;
 import com.spring.data.Requests;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,24 +16,24 @@ public class RequestsServiceImpl implements RequestsService{
     @Override
     @Transactional
     public List<Requests> getRequests() {
-        return requestsDao.getRequests();
+        return (List<Requests>) requestsDao.findAll();
     }
 
     @Override
     @Transactional
     public void saveRequests(Requests requests) {
-    requestsDao.saveRequests(requests);
+    requestsDao.save(requests);
     }
 
     @Override
     @Transactional
     public Requests getRequests(int id) {
-        return requestsDao.getRequests(id);
+        return requestsDao.findOne(id);
     }
 
     @Override
     @Transactional
     public void deleteRequests(int id) {
-    requestsDao.deleteRequests(id);
+    requestsDao.delete(id);
     }
 }

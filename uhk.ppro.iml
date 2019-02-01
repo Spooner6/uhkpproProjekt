@@ -32,6 +32,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="Entities" />
+          <factory-entry name="entityManagerFactory" value="5c13bbcd-5f0c-448c-8246-8a16f0daadb4" />
         </datasource-mapping>
       </configuration>
     </facet>
@@ -102,5 +103,7 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.12.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.19" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:1.10.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.9" level="project" />
   </component>
 </module>

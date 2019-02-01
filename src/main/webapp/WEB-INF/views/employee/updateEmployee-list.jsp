@@ -111,10 +111,6 @@
         <label for="exampleObsah">Číslo kreditní karty:</label>
         <fom:input path="cardNumber" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
 
-        <small id="emailHelp" class="form-text text-muted">Vyplňte prosím ve tvaru: ROLE_MANAGER nebo ROLE_EMPLOYEE</small>
-        <label for="exampleObsah">Role:</label>
-        <fom:input path="authority" class="form-control" placeholder="Vyplňte obsah" id="exampleObsah"/>
-
         <label for="exampleObsah">enabled</label>
         <fom:input path="enabled" class="form-control" placeholder="1" id="exampleObsah"/>
 

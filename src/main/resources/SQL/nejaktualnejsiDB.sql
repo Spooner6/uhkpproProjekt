@@ -17,7 +17,7 @@ CREATE TABLE `users` (
   `cardnumber` varchar(50) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 --
@@ -38,7 +38,7 @@ CREATE TABLE `authorities` (
   `authority` varchar(50) NOT NULL,
   UNIQUE KEY `authorities_idx_1` (`username`,`authority`),
   CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 --
@@ -59,11 +59,8 @@ CREATE TABLE `requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` varchar(10000) CHARACTER SET utf8 DEFAULT NULL ,
   `description` varchar(45)CHARACTER SET utf8 DEFAULT NULL,
-  	`owner` varchar(20) ,
-    `state` varchar(10),
-  PRIMARY KEY (`id`),
-	foreign key (`owner`) references users (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +68,7 @@ CREATE TABLE `requests` (
 --
 insert into `requests`
 values
-(1,'Dobry den, chtel bych se zeptat, zda bude k obedu pizza?','Piiza?','zamestnanec','NE');
+(1,'Dobry den, rikal jsem si, ze by bylo lepsi, kdyby firma misto vlastniho serveru poridila klaudove uloziste.','Server vs. Cloud');
 
 -- Dump completed on 2016-09-24 21:50:59
 DROP TABLE IF EXISTS `news`;
@@ -82,7 +79,7 @@ CREATE TABLE `news` (
   `text` varchar(1000) CHARACTER SET utf8 DEFAULT NULL ,
   `description` varchar(45)CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,3 +89,15 @@ CREATE TABLE `news` (
 INSERT INTO `news` VALUES
 	(1,'Dobrý den, dne 4.2.2018 bude celofiremní volno z důvodu čištění budovy od parazitů. Každému zamšstnanci doporučujeme navštívit obvodního lékaře','Celofiremní dovolená'),
 	(2,'Dobrý den, vyskytl se zde takový nešvar. Lidé si nosí jídlo domů!','Probléms  jídlem v jídelně');
+
+DROP TABLE IF EXISTS `attendance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE attendance (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prichod` varchar(25),
+  `stav` varchar(15),
+  `username` varchar(20),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;

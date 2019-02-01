@@ -14,15 +14,6 @@ public class Requests {
     private String text;
     @Column(name = "description")
     private String desctiption;
-    @Column(name = "owner")
-    private String owner;
-    @Column(name = "state")
-    private String state;
-/*    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE
-                            ,CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "owner")
-    private User user;*/
-
 
     public int getId() {
         return id;
@@ -36,17 +27,6 @@ public class Requests {
         return desctiption;
     }
 
-   /* public User getUser() {
-        return user;
-    }*/
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -60,17 +40,7 @@ public class Requests {
         this.desctiption = desctiption;
     }
 
-  /*  public void setUser(User user) {
-        this.user = user;
-    }*/
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
 
     @Override
     public String toString() {
@@ -84,8 +54,6 @@ public class Requests {
     public Requests(String text, String desctiption, String owner, String state) {
         this.text = text;
         this.desctiption = desctiption;
-        this.owner = owner;
-        this.state = state;
     }
 
     public Requests(){

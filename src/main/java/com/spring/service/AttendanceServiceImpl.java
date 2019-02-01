@@ -9,13 +9,14 @@ public class AttendanceServiceImpl implements AttendanceService {
 
     @Autowired
     private AttendanceDao attendanceDao;
+
     @Override
-    public void recordArrive() {
-    attendanceDao.recordArrive();
+    public void recordArrive(String username) {
+        attendanceDao.recordArrive(username);
     }
 
     @Override
     public void recordLeave() {
-    attendanceDao.recordLeave();
+        attendanceDao.recordLeave();
     }
 }

@@ -7,62 +7,36 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@SecondaryTable(name = "authorities", pkJoinColumns = @PrimaryKeyJoinColumn(name = "username"))
 public class User {
 
-/*    @NotNull
-    @Id
-    @Column(name = "id")*/
-   // private int id;
+
     @Id
     @NotNull
-    @Column(name = "username")
     private String userName;
     @NotNull
-    @Column(name = "password")
     private String password;
     @NotNull
-    @Column(name = "enabled")
     private String enabled;
-/*    @NotNull
-    @Column(name = "role")
-    private String role;*/
+
     @NotNull
-    @Column(name = "firstname")
     private String firstName;
     @NotNull
-    @Column(name = "lastname")
     private String lastName;
     @NotNull
-    @Column(name = "adress")
     private String adress;
     @NotNull
-    @Column(name = "cardnumber")
     private String cardNumber;
- /*   @NotNull
-    @Column(table = "authorities", name = "username")
-    private String username;
-    */
-    @NotNull
-    @Column(table = "authorities", name = "authority")
-    private String authority;
 
 
-   /* @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.MERGE
-                                            ,CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Requests> requestsList;*/
-
-  /*  @ManyToMany(fetch = FetchType.LAZY, cascade = {
-            CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "")
-    private List<Authorities> authorities;
-    */
     public User(){
 
     }
+    @OneToMany
+    @JoinColumn(name = "username")
+     private List<Authorities> authorities;
 
-
+    @NotNull
+    @Column(name = "username", nullable = false)
     public String getUserName() {
         return userName;
     }
@@ -71,6 +45,8 @@ public class User {
         this.userName = userName;
     }
 
+    @NotNull
+    @Column(name = "password", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -79,6 +55,8 @@ public class User {
         this.password = password;
     }
 
+    @NotNull
+    @Column(name = "enabled", nullable = false)
     public String getEnabled() {
         return enabled;
     }
@@ -87,29 +65,9 @@ public class User {
         this.enabled = enabled;
     }
 
-    public String getAuthority() {
-        return authority;
-    }
 
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-    /*   public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }*/
-/*
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }*/
-
+    @NotNull
+    @Column(name = "firstname", nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -118,6 +76,8 @@ public class User {
         this.firstName = firstName;
     }
 
+    @NotNull
+    @Column(name = "lastname", nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -126,6 +86,8 @@ public class User {
         this.lastName = lastName;
     }
 
+    @NotNull
+    @Column(name = "adress", nullable = false)
     public String getAdress() {
         return adress;
     }
@@ -134,6 +96,8 @@ public class User {
         this.adress = adress;
     }
 
+    @NotNull
+    @Column(name = "cardnumber", nullable = false)
     public String getCardNumber() {
         return cardNumber;
     }
@@ -147,7 +111,6 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.enabled = enabled;
- /*       this.role = role;*/
         this.firstName = firstName;
         this.lastName = lastName;
         this.adress = adress;
