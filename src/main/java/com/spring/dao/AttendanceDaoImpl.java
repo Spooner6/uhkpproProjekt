@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 @Transactional
 @Repository
@@ -16,6 +17,11 @@ public class AttendanceDaoImpl implements AttendanceDao {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    @Override
+    public List<Attendance> getAttendance() {
+        return null;
+    }
 
     @Override
     public void recordArrive(String username) {
