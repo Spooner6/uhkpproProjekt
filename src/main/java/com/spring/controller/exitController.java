@@ -8,9 +8,11 @@ public class exitController {
     int b;
     int d;
     String s;
+    String str;
 
-    public exitController(int a, String s) {
+    public exitController(int a, String s, String str) {
         this.a = a;
         this.s = s;
+        this.str = str;
     }
 }
