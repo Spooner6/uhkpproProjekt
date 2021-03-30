@@ -1,2 +1,6 @@
-package com.spring.controller;public class LogicController {
+package com.spring.controller;
+
+public class LogicController {
+
+    int a;
 }
