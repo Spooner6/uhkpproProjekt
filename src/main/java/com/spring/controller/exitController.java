@@ -11,10 +11,15 @@ public class exitController {
     String str;
     String g;
     String f;
+    String ggg;
 
     public exitController(int a, String s, String str) {
         this.a = a;
         this.s = s;
         this.str = str;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
