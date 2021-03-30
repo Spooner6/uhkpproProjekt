@@ -14,4 +14,8 @@ public class LoginController {
     public String showAccesDenied(){
         return "login/accesDenied";
     }
+
+    public static void main(String[] args) {
+        
+    }
 }
