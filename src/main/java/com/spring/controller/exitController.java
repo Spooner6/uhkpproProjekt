@@ -6,6 +6,7 @@ public class exitController {
     int a;
     int c;
     int b;
+    int d;
 
     public exitController(int a) {
         this.a = a;
