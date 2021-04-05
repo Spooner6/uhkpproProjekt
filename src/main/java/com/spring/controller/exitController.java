@@ -6,6 +6,8 @@ public class exitController {
     int a;
     String s;
     String str;
+    String str2;
+    String str3;
 
     public exitController(int a, String s, String str) {
         this.a = a;
