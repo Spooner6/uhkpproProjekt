@@ -18,4 +18,16 @@ public class exitController {
         this.s = s;
         this.str = str;
     }
+
+    public static int getA() {
+        return a;
+    }
+
+    public static String getS() {
+        return s;
+    }
+
+    public static String getStr() {
+        return str;
+    }
 }
