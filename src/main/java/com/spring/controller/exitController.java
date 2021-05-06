@@ -21,9 +21,4 @@ public class exitController {
 
     public exitController() {
     }
-
-    public static int getA() {
-        return a;
-    }
-
 }
