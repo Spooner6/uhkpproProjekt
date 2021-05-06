@@ -18,4 +18,8 @@ public class exitController {
         this.s = s;
         this.str = str;
     }
+
+    public exitController() {
+    }
+
 }
