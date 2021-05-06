@@ -19,15 +19,6 @@ public class exitController {
         this.str = str;
     }
 
-    public static int getA() {
-        return a;
-    }
-
-    public static String getS() {
-        return s;
-    }
-
-
     public exitController() {
     }
 
