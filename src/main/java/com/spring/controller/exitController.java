@@ -3,15 +3,15 @@ package com.spring.controller;
 public class exitController {
     //git test
 
-    int a;
-    String s;
-    String str;
-    String str2;
-    String str3;
-    int a2;
-    int g;
-    int c;
-    int d;
+    public static int a;
+    public static String s;
+    public static String str;
+    public static String str2;
+    public static String str3;
+    public static int a2;
+    public static int g;
+    public static int c;
+    public static int d;
 
     public exitController(int a, String s, String str) {
         this.a = a;
@@ -20,6 +20,7 @@ public class exitController {
     }
 
     public static void main(String[] args) {
-    int c = 1;
+        int c = 1;
+        a = 5;
     }
 }
