@@ -25,4 +25,8 @@ public class exitController {
     public static int getA() {
         return a;
     }
+
+    public static String getStr2() {
+        return str2;
+    }
 }
