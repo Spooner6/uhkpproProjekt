@@ -27,9 +27,6 @@ public class exitController {
         return s;
     }
 
-    public static String getStr() {
-        return str;
-    }
 
     public exitController() {
     }
