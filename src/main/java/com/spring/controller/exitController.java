@@ -9,7 +9,7 @@ public class exitController {
     public static String str2;
     public static String str3;
     public static int a2;
-    public static int g;
+    public static int h;
     public static int c;
     public static int d;
 
@@ -17,10 +17,5 @@ public class exitController {
         this.a = a;
         this.s = s;
         this.str = str;
-    }
-
-    public static void main(String[] args) {
-        int c = 1;
-        a = 5;
     }
 }
