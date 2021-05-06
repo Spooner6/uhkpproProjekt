@@ -26,7 +26,4 @@ public class exitController {
         return a;
     }
 
-    public static String getStr2() {
-        return str2;
-    }
 }
